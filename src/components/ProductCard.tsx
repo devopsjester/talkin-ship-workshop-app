@@ -24,7 +24,7 @@ const ProductCard = ({
       )}
     >
       {(isGoggle || isFeatured) && (
-        <CornerAccent label={
+        <CornerAccent label={ featuredProductLabel
            ? featuredProductLabel : "NEW"} />
       )}
       <CardHeader className="grid row-start-1">
