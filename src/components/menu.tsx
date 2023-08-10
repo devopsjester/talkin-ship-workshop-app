@@ -64,10 +64,14 @@ const NavigationMenuDemo = () => {
         "Goggles Go Global", Step 4, replace this comment block with the code from the guide
         *************************************************************************************/}
 
-        {/**********************************************************************   
-        "Taking on Database Migrations - Getting Our Application Ready", Step 2, 
-        replace this comment block with the code from the guide
-        ************************************************************************/}
+{adminMode ? (
+  <NavigationMenu.Item>
+    <NavigationMenuLink>
+      <AdminPanel />
+    </NavigationMenuLink>
+  </NavigationMenu.Item>
+  ) : null}
+  
         {billing && storeEnabled ? (
           <NavigationMenu.Item>
             <NavigationMenuTrigger>

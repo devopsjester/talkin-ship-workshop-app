@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 
 export default function Home() {
   // We'll need to import the flag, make sure you uncomment the next line!
-  // const { storeEnabled } = useFlags();
+  const { storeEnabled } = useFlags();
 
   return (
     <div className={cn("font-sohne")}>
@@ -23,7 +23,8 @@ export default function Home() {
       {/********************************************************************************************************
       * Retrieve Code from "Shipping Your First Feature with LaunchDarkly - Dark Launching our Feature", Step 3
       **********************************************************************************************************/}
-      <StorePreview /> 
+      {  storeEnabled ? <StoreLaunch /> : <StorePreview /> }
+
       {/**********************************************************
        * Replace the above component with the code from the guide 
        **********************************************************/}
