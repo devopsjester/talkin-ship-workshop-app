@@ -75,8 +75,16 @@ let jsonObject;
      * we're missing the code to retrieve the new products. 
      * You'll find this code in "Preparing for Launch - Updating our Product Catalog" Step 3
      ****************************************************************************************/
+// this function retrieves our product catalog from the Stripe API based on our flag values. 
+// If you want to see the flag evaluations, check out the `/src/utils/product-helpers.ts` 
+
 if (req.method === "GET") {
-    return res.json(product)
+  if (enableStripe) {
+  retrieveProducts(req, res)
+}
+else {
+    return res.json(product);
+  }
 }
     /**************************************************************************
      * Put replacement code between these two comments blocks 

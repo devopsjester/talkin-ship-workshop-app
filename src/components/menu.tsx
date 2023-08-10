@@ -60,9 +60,74 @@ const NavigationMenuDemo = () => {
         <Image src={ts} className="ml-4 p-2" alt="logo" height={55} />
       </Link>
       <NavigationMenuList>
-        {/***********************************************************************************
-        "Goggles Go Global", Step 4, replace this comment block with the code from the guide
-        *************************************************************************************/}
+      {devdebug ? (
+          <NavigationMenu.Item>
+            <NavigationMenuTrigger>
+              <div className="bg-orange-500 p-2 text-white" style={{ width: "160px", height: "40px", alignItems: 'center', display: 'flex' }}>
+                Debug: App Data
+                <CaretDownDebug aria-hidden />
+              </div>
+            </NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <List>
+                <ListItem title="Selected Country">{uiCountry}</ListItem>
+                <ListItem title="Product Categories"></ListItem>
+                <ListItem title="Admin Access">
+                  {adminMode ? "Enabled" : "Disabled"}
+                </ListItem>
+                <ListItem title="Billing API">
+                  {billing ? "Enabled" : "Disabled"}
+                </ListItem>
+              </List>
+            </NavigationMenuContent>
+          </NavigationMenu.Item>
+        ) : null}
+        {devdebug ? (
+          <NavigationMenu.Item>
+            <NavigationMenuTrigger>
+            <div className="bg-orange-500 p-2 text-white" style={{ width: "200px", height: "40px", alignItems: 'center', display: 'flex' }}>                Debug: Country Override
+                <CaretDownDebug aria-hidden />
+              </div>
+            </NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <List>
+                <ListItem onClick={changeCountry.bind(null, "US")} title="USA">
+                  🇺🇸
+                </ListItem>
+                <ListItem
+                  onClick={changeCountry.bind(null, "MX")}
+                  title="Mexico"
+                >
+                  🇲🇽
+                </ListItem>
+                <ListItem
+                  onClick={changeCountry.bind(null, "CA")}
+                  title="Canada"
+                >
+                  🇨🇦
+                </ListItem>
+                <ListItem
+                  onClick={changeCountry.bind(null, "UK")}
+                  title="United Kingdom"
+                >
+                  🇬🇧
+                </ListItem>
+                <ListItem
+                  onClick={changeCountry.bind(null, "FR")}
+                  title="France"
+                >
+                  🇫🇷
+                </ListItem>
+                <ListItem
+                  onClick={changeCountry.bind(null, "PT")}
+                  title="Portugal"
+                >
+                  🇵🇹
+                </ListItem>
+              </List>
+            </NavigationMenuContent>
+          </NavigationMenu.Item>
+        ) : null}
 
 {adminMode ? (
   <NavigationMenu.Item>
@@ -71,7 +136,7 @@ const NavigationMenuDemo = () => {
     </NavigationMenuLink>
   </NavigationMenu.Item>
   ) : null}
-  
+
         {billing && storeEnabled ? (
           <NavigationMenu.Item>
             <NavigationMenuTrigger>

@@ -68,6 +68,11 @@ const Inventory = () => {
      * Add code from "Using the Metric System", Step 4a here. 
      * 
      */
+    //Step 4a
+    if (client) {
+      client.track("Add to Cart Click");
+      client.flush();
+    }
   }
 
   const {
@@ -121,7 +126,7 @@ const Inventory = () => {
             key={index}
             item={product}
             featuredProductLabel={featuredProductLabel}
-            isGoggle={product.category === "goggle"} //Change this line to match "Using the Metric System", step 8c
+            isGoggle={false} // Goggles are no longer "new"
             isFeatured={featuredProductLabel && index < 4}
           >
             {/*************************************************************************

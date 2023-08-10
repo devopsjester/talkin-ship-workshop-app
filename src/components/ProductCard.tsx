@@ -23,8 +23,9 @@ const ProductCard = ({
         "flex w-[280px] h-auto m-5 group shadow-xl relative flex-col justify-center items-center animate-fade-in grid-rows-2"
       )}
     >
-      {(isGoggle && isFeatured) && (
-        <CornerAccent label={isFeatured ? featuredProductLabel : "NEW"} />
+      {(isGoggle || isFeatured) && (
+        <CornerAccent label={
+           ? featuredProductLabel : "NEW"} />
       )}
       <CardHeader className="grid row-start-1">
         <img
